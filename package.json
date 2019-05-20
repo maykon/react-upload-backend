@@ -1,0 +1,19 @@
+{
+  "name": "upload-backend",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Maykon Capellari <maykonluiscapellari@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
