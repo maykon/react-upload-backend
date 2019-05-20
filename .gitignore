@@ -5,6 +5,5 @@ npm-debug.log
 yarn-error.log
 .env
 tmp/*
-!tmp/.gitkeep
+!tmp/uploads
 tmp/uploads/*
-!tmp/uploads/.gitkeep
