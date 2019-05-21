@@ -33,4 +33,13 @@ routes.delete("/posts/:id", async (req, res) => {
   return res.send();
 });
 
+routes.put("/posts/:id", async (req, res) => {
+  const post = await Post.findOne({ _id: req.params.id });
+  if (!post) return res.status(404).json({ error: "Post not found" });
+  console.log(req.body);
+  post.name = req.body.name;
+  await post.save();
+  return res.send();
+});
+
 module.exports = routes;
