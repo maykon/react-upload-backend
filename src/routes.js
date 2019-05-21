@@ -10,16 +10,20 @@ routes.get("/posts", async (req, res) => {
 });
 
 routes.post("/posts", multer(multerConfig).single("file"), async (req, res) => {
-  const { originalname: name, size, key, location: url = "" } = req.file;
+  try {
+    const { originalname: name, size, key, location: url = "" } = req.file;
 
-  const post = await Post.create({
-    name,
-    size,
-    key,
-    url
-  });
+    const post = await Post.create({
+      name,
+      size,
+      key,
+      url
+    });
 
-  return res.json(post);
+    return res.json(post);
+  } catch (err) {
+    return res.status(500).json({ error: err });
+  }
 });
 
 routes.delete("/posts/:id", async (req, res) => {
